@@ -959,7 +959,7 @@ function createDialEl(dial, parentId) {
     el.onclick = (e) => { e.stopPropagation(); openGroupPopup(dial); };
   } else {
     icon.innerHTML = createIconContent(dial);
-    el.onclick = (e) => { e.stopPropagation(); window.location.href = dial.url; };
+    el.onclick = (e) => { e.stopPropagation(); window.open(dial.url, '_blank'); };
   }
 
   const label = document.createElement('span');
@@ -1025,7 +1025,7 @@ function hideCtxMenu() { document.getElementById('ctx-menu').classList.remove('v
 
 document.getElementById('ctx-open').onclick = () => {
   const d = findDial(ctxTarget.id, ctxTarget.parentId);
-  if (d) window.open(d.url, '_blank', 'noopener');
+  if (d) window.open(d.url, '_blank');
   hideCtxMenu();
 };
 
